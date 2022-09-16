@@ -1,0 +1,20 @@
+<!-- homepage/index.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'homepage/homepage_index.css' %}">
+{% endblock %}
+
+{% block header %}
+Welcome to Widget!
+{% endblock %}
+
+{% block content %}
+    {% for user in users %}
+        <a class="details" href="{{user.id}}/details">{{forloop.counter}}. {{user.last_name}}, {{user.first_name}} {{user.middle_name}}</a> </br>
+    {% endfor %}
+    <a class="new-user-link" href="/users/add">Add Widget User</a>
+{% endblock %}

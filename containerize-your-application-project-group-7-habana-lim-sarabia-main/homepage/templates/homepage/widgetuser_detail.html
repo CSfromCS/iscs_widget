@@ -1,0 +1,24 @@
+<!-- homepage/widgetuser_detail.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'homepage/widgetuser_detail.css' %}">
+{% endblock %}
+
+{% block header %}
+    {% if object.profile_pic != None and object.profile_pic != '' %}
+        <img width=60 height=60 src="{% get_media_prefix %}{{object.profile_pic}}"/>
+    {% else %}
+        <img width=60 height=60 src="{% static 'homepage/default_profilepic.png' %}"/> 
+    {% endif %}
+
+    {{object.last_name}}, {{object.first_name}} {{object.middle_name}}
+{% endblock %}
+
+{% block content %}
+    <p> Student ID: {{object.id_num}}</p>
+    <p> Email: {{object.email}}</p>
+{% endblock %}

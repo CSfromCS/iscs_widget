@@ -1,0 +1,22 @@
+<!-- project/template/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'base_style.css' %}" rel="stylesheet" />
+    {% block styles %}{% endblock %}
+  </head>
+  <body>
+    <nav>
+      <ul class="ul-links">
+        <li><a class="links" href="/homepage/">HOMEPAGE</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <h1 class="header">{% block header %}{% endblock %}</h1>
+      {% block content %}{% endblock %}
+    </div>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

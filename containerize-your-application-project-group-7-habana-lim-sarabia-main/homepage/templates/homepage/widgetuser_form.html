@@ -1,0 +1,21 @@
+<!-- homepage/widgetuser_form.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'homepage/widgetuser_form.css' %}">
+{% endblock %}
+
+{% block header %}
+    Add Widget User
+{% endblock %}
+
+{% block content %}
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save New User">
+    </form>
+{% endblock %}
